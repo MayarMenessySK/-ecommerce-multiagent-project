@@ -1,0 +1,65 @@
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.userprefs
+bin/
+obj/
+*.log
+
+# VS Code
+.vscode/
+
+# Rider
+.idea/
+
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+dist/
+.env
+.env.local
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Aa]rm/
+[Aa]rm64/
+bld/
+[Bb]in/
+[Oo]bj/
+
+# Test results
+TestResults/
+*.trx
+*.coverage
+
+# NuGet
+packages/
+*.nupkg
+*.snupkg
+
+# Docker
+docker-compose.override.yml
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Secrets
+appsettings.Development.json
+appsettings.Production.json
+*.secrets.json
+
+# LLBLGen Pro
+*.lpt
+*.lgp.bak
+
+# Misc
+*.cache
+*.temp
