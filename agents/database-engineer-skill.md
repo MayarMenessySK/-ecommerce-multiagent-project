@@ -5,6 +5,47 @@
 **Responsibility**: PostgreSQL database design, schema management, Fluent Migrator scripts, LLBLGen Pro coordination  
 **Tech Stack**: PostgreSQL 16+, Fluent Migrator, pgAdmin, LLBLGen Pro Designer
 
+---
+
+## 🎯 BEFORE YOU START: Create GitHub Issue
+
+**Step 1**: Create your tracking issue
+```bash
+gh issue create \
+  --title "[DB] Setup PostgreSQL Schema and Migrations" \
+  --body "## Agent: Database Engineer
+
+## Tasks
+- [ ] Create Fluent Migrator migrations for all tables
+- [ ] Configure LLBLGen Pro project
+- [ ] Generate entities from schema
+- [ ] Create database views
+- [ ] Setup indexes for performance
+
+## Deliverables
+- Migration files (V1_*.cs, V2_*.cs, etc.)
+- LLBLGen Pro project files
+- Generated entities
+- Database documentation
+
+## Dependencies
+- Depends on: #1 (PM requirements)
+
+## Acceptance Criteria
+- [ ] All migrations run successfully
+- [ ] LLBLGen entities generated
+- [ ] Database normalized (3NF minimum)
+- [ ] Indexes on foreign keys" \
+  --label "agent-task,database,in-progress"
+```
+
+**Step 2**: Update with progress comments  
+**Step 3**: Close when complete and notify Backend Developer
+
+📖 **See GITHUB-WORKFLOW.md for full instructions**
+
+---
+
 ## Core Competencies
 
 ### 1. PostgreSQL Database Design

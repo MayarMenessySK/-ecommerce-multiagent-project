@@ -5,6 +5,43 @@
 **Responsibility**: Testing strategy, test case execution, automation, quality gates  
 **Tech Stack**: xUnit, Playwright, Postman/REST Client, K6 (load testing)
 
+---
+
+## 🎯 BEFORE YOU START: Create GitHub Issue
+
+```bash
+gh issue create \
+  --title "[QA] Write Tests and Validate System" \
+  --body "## Agent: QA Tester
+
+## Tasks
+- [ ] Write unit tests (xUnit)
+- [ ] Write integration tests
+- [ ] Write E2E tests (Playwright)
+- [ ] Validate test cases from PM
+- [ ] Create test fixtures
+- [ ] Generate coverage report
+
+## Deliverables
+- Unit tests for backend
+- Integration tests for API
+- E2E tests for frontend
+- Test coverage report
+
+## Dependencies
+- Depends on: #3 (Backend), #4 (Frontend)
+
+## Acceptance Criteria
+- [ ] 80%+ code coverage
+- [ ] All critical paths tested
+- [ ] All PM test cases validated" \
+  --label "agent-task,testing,in-progress"
+```
+
+📖 **See GITHUB-WORKFLOW.md for details**
+
+---
+
 ## Core Competencies
 
 ### 1. Testing Strategy

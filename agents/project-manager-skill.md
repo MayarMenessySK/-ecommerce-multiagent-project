@@ -5,6 +5,58 @@
 **Responsibility**: Requirements gathering, specification documentation, project planning, coordination, and test case creation  
 **Tech Stack**: Documentation tools, GitHub Projects, Markdown
 
+---
+
+## 🎯 BEFORE YOU START: Create GitHub Issue
+
+**Step 1**: Create your tracking issue
+```bash
+cd D:\source\ecommerce-multiagent-project
+
+gh issue create \
+  --title "[PM] Create Requirements and API Specification" \
+  --body "## Agent: Project Manager
+
+## Tasks
+- [ ] Create requirements.md with functional/non-functional requirements
+- [ ] Create api-specification.md with all endpoints
+- [ ] Define test-cases.md for QA testing
+- [ ] Document project scope and timeline
+
+## Deliverables
+- requirements.md
+- api-specification.md
+- test-cases.md
+
+## Dependencies
+None (First agent to run)
+
+## Acceptance Criteria
+- [ ] All documents created and committed
+- [ ] Requirements cover all core e-commerce features
+- [ ] API spec includes request/response examples
+- [ ] Test cases linked to requirements" \
+  --label "agent-task,documentation,in-progress"
+```
+
+**Step 2**: Note your issue number (e.g., #1)
+
+**Step 3**: Update progress with comments as you work
+
+**Step 4**: Close issue when complete:
+```bash
+gh issue close <issue-number> --comment "✅ All tasks completed. Deliverables:
+- requirements.md
+- api-specification.md
+- test-cases.md
+
+Ready for Database Engineer to start."
+```
+
+📖 **See GITHUB-WORKFLOW.md for full instructions**
+
+---
+
 ## Core Competencies
 
 ### 1. Requirements Management

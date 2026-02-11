@@ -5,6 +5,45 @@
 **Responsibility**: CI/CD pipelines, containerization, Kubernetes deployment, infrastructure as code  
 **Tech Stack**: Docker, Docker Compose, Kubernetes, GitHub Actions, PostgreSQL, Nginx
 
+---
+
+## 🎯 BEFORE YOU START: Create GitHub Issue
+
+```bash
+gh issue create \
+  --title "[DevOps] Setup CI/CD and Deployment" \
+  --body "## Agent: DevOps Engineer
+
+## Tasks
+- [ ] Create Dockerfiles
+- [ ] Create docker-compose.yml
+- [ ] Setup GitHub Actions
+- [ ] Configure Kubernetes manifests
+- [ ] Setup environment variables
+- [ ] Create deployment scripts
+
+## Deliverables
+- Dockerfile for each service
+- docker-compose.yml
+- .github/workflows/ci-cd.yml
+- kubernetes/ manifests
+- Deployment docs
+
+## Dependencies
+- Depends on: #5 (Tests must pass)
+
+## Acceptance Criteria
+- [ ] Docker builds successfully
+- [ ] docker-compose works locally
+- [ ] GitHub Actions runs tests
+- [ ] K8s deployment configured" \
+  --label "agent-task,devops,in-progress"
+```
+
+📖 **See GITHUB-WORKFLOW.md for details**
+
+---
+
 ## Core Competencies
 
 ### 1. Containerization

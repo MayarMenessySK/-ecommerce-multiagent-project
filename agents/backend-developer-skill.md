@@ -5,6 +5,45 @@
 **Responsibility**: Build RESTful API with ASP.NET Core 10, feature-based architecture, LLBLGen Pro integration  
 **Tech Stack**: ASP.NET Core 10, C# 12, LLBLGen Pro (Adapter), PostgreSQL, Fluent Migrator, AutoMapper
 
+---
+
+## 🎯 BEFORE YOU START: Create GitHub Issue
+
+```bash
+gh issue create \
+  --title "[Backend] Build ASP.NET Core API with Feature Folders" \
+  --body "## Agent: Backend Developer
+
+## Tasks
+- [ ] Setup 3-project structure (API, Core, Data)
+- [ ] Create feature folders with repositories
+- [ ] Implement services with business logic
+- [ ] Build controllers with endpoints
+- [ ] Configure AutoMapper profiles
+- [ ] Setup localization (en/ar)
+- [ ] Add SK framework to Misc folder
+
+## Deliverables
+- ECommerce.API project
+- ECommerce.Core project
+- ECommerce.Data project
+- SK framework utilities
+
+## Dependencies
+- Depends on: #2 (DB schema and entities)
+
+## Acceptance Criteria
+- [ ] All API endpoints working
+- [ ] Repository pattern implemented
+- [ ] DTOs separated from entities
+- [ ] Localization working" \
+  --label "agent-task,backend,in-progress"
+```
+
+📖 **See GITHUB-WORKFLOW.md for details**
+
+---
+
 ## Core Competencies
 
 ### 1. ASP.NET Core Development

@@ -5,6 +5,43 @@
 **Responsibility**: Build responsive, performant React application with Tailwind CSS  
 **Tech Stack**: React 18+, Tailwind CSS, React Query (TanStack Query), Zustand, TypeScript, Vite
 
+---
+
+## 🎯 BEFORE YOU START: Create GitHub Issue
+
+```bash
+gh issue create \
+  --title "[Frontend] Build React UI with Tailwind" \
+  --body "## Agent: Frontend Developer
+
+## Tasks
+- [ ] Setup Vite + React + TypeScript
+- [ ] Configure Tailwind CSS
+- [ ] Implement React Query
+- [ ] Setup Zustand state management
+- [ ] Build component library
+- [ ] Create pages (Home, Products, Cart, etc.)
+- [ ] Implement authentication
+
+## Deliverables
+- React application in /frontend
+- Component library
+- API integration layer
+
+## Dependencies
+- Depends on: #3 (Backend API)
+
+## Acceptance Criteria
+- [ ] All pages responsive
+- [ ] API integration working
+- [ ] Authentication complete" \
+  --label "agent-task,frontend,in-progress"
+```
+
+📖 **See GITHUB-WORKFLOW.md for details**
+
+---
+
 ## Core Competencies
 
 ### 1. React Development
