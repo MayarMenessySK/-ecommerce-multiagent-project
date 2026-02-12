@@ -1,0 +1,102 @@
+{
+  "Common": {
+    "Success": "Operation completed successfully",
+    "Error": "An error occurred",
+    "NotFound": "Resource not found",
+    "Unauthorized": "You are not authorized to perform this action",
+    "InvalidInput": "Invalid input provided",
+    "InternalError": "Internal server error"
+  },
+  "Validation": {
+    "Required": "This field is required",
+    "EmailInvalid": "Invalid email address",
+    "PasswordWeak": "Password must be at least 8 characters and include uppercase, lowercase, number, and special character",
+    "PasswordMismatch": "Passwords do not match",
+    "PhoneInvalid": "Invalid phone number format",
+    "MinLength": "Must be at least {0} characters",
+    "MaxLength": "Must not exceed {0} characters",
+    "RangeInvalid": "Must be between {0} and {1}",
+    "DateInvalid": "Invalid date format"
+  },
+  "Auth": {
+    "LoginSuccess": "Login successful",
+    "RegisterSuccess": "Registration successful",
+    "LogoutSuccess": "Logout successful",
+    "InvalidCredentials": "Invalid email or password",
+    "EmailExists": "Email already exists",
+    "AccountLocked": "Account is locked due to multiple failed login attempts",
+    "AccountInactive": "Account is inactive",
+    "EmailNotVerified": "Please verify your email address",
+    "PasswordResetSuccess": "Password reset successful",
+    "PasswordResetEmailSent": "Password reset email sent",
+    "InvalidResetToken": "Invalid or expired reset token",
+    "TokenExpired": "Token has expired",
+    "TokenRefreshed": "Token refreshed successfully"
+  },
+  "User": {
+    "ProfileUpdated": "Profile updated successfully",
+    "PasswordChanged": "Password changed successfully",
+    "CurrentPasswordIncorrect": "Current password is incorrect",
+    "UserNotFound": "User not found",
+    "EmailVerified": "Email verified successfully",
+    "VerificationEmailSent": "Verification email sent"
+  },
+  "Product": {
+    "Created": "Product created successfully",
+    "Updated": "Product updated successfully",
+    "Deleted": "Product deleted successfully",
+    "NotFound": "Product not found",
+    "OutOfStock": "Product is out of stock",
+    "InsufficientStock": "Insufficient stock available",
+    "InvalidQuantity": "Invalid quantity specified"
+  },
+  "Category": {
+    "Created": "Category created successfully",
+    "Updated": "Category updated successfully",
+    "Deleted": "Category deleted successfully",
+    "NotFound": "Category not found",
+    "NameExists": "Category name already exists"
+  },
+  "Order": {
+    "Created": "Order created successfully",
+    "Updated": "Order updated successfully",
+    "Cancelled": "Order cancelled successfully",
+    "NotFound": "Order not found",
+    "CannotCancel": "Order cannot be cancelled",
+    "AlreadyProcessed": "Order has already been processed",
+    "EmptyCart": "Cart is empty",
+    "InvalidStatus": "Invalid order status"
+  },
+  "Cart": {
+    "ItemAdded": "Item added to cart",
+    "ItemUpdated": "Cart item updated",
+    "ItemRemoved": "Item removed from cart",
+    "Cleared": "Cart cleared",
+    "Empty": "Cart is empty",
+    "InvalidQuantity": "Invalid quantity"
+  },
+  "Review": {
+    "Created": "Review created successfully",
+    "Updated": "Review updated successfully",
+    "Deleted": "Review deleted successfully",
+    "NotFound": "Review not found",
+    "AlreadyReviewed": "You have already reviewed this product",
+    "InvalidRating": "Rating must be between 1 and 5",
+    "OrderRequired": "You must purchase this product before reviewing"
+  },
+  "Address": {
+    "Created": "Address created successfully",
+    "Updated": "Address updated successfully",
+    "Deleted": "Address deleted successfully",
+    "NotFound": "Address not found",
+    "SetDefault": "Default address set successfully"
+  },
+  "Payment": {
+    "Success": "Payment successful",
+    "Failed": "Payment failed",
+    "Pending": "Payment is pending",
+    "Cancelled": "Payment cancelled",
+    "InvalidAmount": "Invalid payment amount",
+    "CardDeclined": "Card declined"
+  }
+}
