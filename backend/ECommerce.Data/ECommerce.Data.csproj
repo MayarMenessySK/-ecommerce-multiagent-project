@@ -2,18 +2,22 @@
 
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
+    <AssemblyName>ECommerce.Data</AssemblyName>
+    <RootNamespace>ECommerce.Data</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="FluentMigrator" Version="8.0.1" />
-    <PackageReference Include="Npgsql" Version="10.0.1" />
-    <PackageReference Include="SD.LLBLGen.Pro.DQE.PostgreSql" Version="5.13.0" />
     <PackageReference Include="SD.LLBLGen.Pro.ORMSupportClasses" Version="5.13.0" />
   </ItemGroup>
 
-  <!-- Exclude repositories until LLBLGen entities are generated -->
+  <!-- Exclude migrations - they're in Migration project -->
+  <ItemGroup>
+    <Compile Remove="Migrations\**\*.cs" />
+  </ItemGroup>
+
+  <!-- Exclude repositories - they're in Core project -->
   <ItemGroup>
     <Compile Remove="Repositories\**\*.cs" />
   </ItemGroup>
