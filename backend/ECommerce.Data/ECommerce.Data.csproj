@@ -8,10 +8,14 @@
 
   <ItemGroup>
     <PackageReference Include="FluentMigrator" Version="8.0.1" />
-    <PackageReference Include="FluentMigrator.Runner" Version="8.0.1" />
     <PackageReference Include="Npgsql" Version="10.0.1" />
     <PackageReference Include="SD.LLBLGen.Pro.DQE.PostgreSql" Version="5.13.0" />
     <PackageReference Include="SD.LLBLGen.Pro.ORMSupportClasses" Version="5.13.0" />
+  </ItemGroup>
+
+  <!-- Exclude repositories until LLBLGen entities are generated -->
+  <ItemGroup>
+    <Compile Remove="Repositories\**\*.cs" />
   </ItemGroup>
 
 </Project>
