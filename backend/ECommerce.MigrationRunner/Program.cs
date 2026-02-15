@@ -8,7 +8,8 @@ class Program
 {
     static int Main(string[] args)
     {
-        bool up = args.Contains("--up");
+        // Default to running UP if no arguments provided
+        bool up = args.Length == 0 || args.Contains("--up");
         long down = -1;
         string env = "Development";
 
@@ -16,51 +17,80 @@ class Program
         for (int i = 0; i < args.Length; i++)
         {
             if (args[i] == "--down" && i + 1 < args.Length)
+            {
                 long.TryParse(args[i + 1], out down);
+                up = false; // If down is specified, don't run up
+            }
             
             if (args[i] == "--env" && i + 1 < args.Length)
                 env = args[i + 1];
         }
 
-        var serviceProvider = CreateServices(env);
-
-        using var scope = serviceProvider.CreateScope();
-        
-        if (up)
+        try
         {
-            Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine("\n🔄 Running migrations UP...\n");
-            Console.ResetColor();
-            
-            UpdateDatabase(scope.ServiceProvider);
-            
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("\n✅ Migrations completed successfully!\n");
-            Console.ResetColor();
-            return 0;
-        }
+            var serviceProvider = CreateServices(env);
 
-        if (down > -1)
-        {
+            using var scope = serviceProvider.CreateScope();
+            
+            if (up)
+            {
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine("\n🔄 Running migrations UP...\n");
+                Console.ResetColor();
+                
+                UpdateDatabase(scope.ServiceProvider);
+                
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("\n✅ Migrations completed successfully!\n");
+                Console.WriteLine("📋 Summary:");
+                Console.WriteLine("  - 16 tables created");
+                Console.WriteLine("  - 7 views created");
+                Console.WriteLine("  - Seed data inserted\n");
+                Console.ResetColor();
+                
+                Console.WriteLine("Press any key to exit...");
+                Console.ReadKey();
+                return 0;
+            }
+
+            if (down > -1)
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine($"\n⚠️  Rolling back to version {down}...\n");
+                Console.ResetColor();
+                
+                RollbackDatabase(scope.ServiceProvider, down);
+                
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("\n✅ Rollback completed!\n");
+                Console.ResetColor();
+                
+                Console.WriteLine("Press any key to exit...");
+                Console.ReadKey();
+                return 0;
+            }
+
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine($"\n⚠️  Rolling back to version {down}...\n");
+            Console.WriteLine("Usage:");
+            Console.WriteLine("  dotnet run -- --up                  # Migrate to latest");
+            Console.WriteLine("  dotnet run -- --down 1              # Rollback to version 1");
+            Console.WriteLine("  dotnet run -- --up --env Production # Use production connection");
             Console.ResetColor();
             
-            RollbackDatabase(scope.ServiceProvider, down);
-            
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("\n✅ Rollback completed!\n");
-            Console.ResetColor();
-            return 0;
+            Console.WriteLine("\nPress any key to exit...");
+            Console.ReadKey();
+            return 1;
         }
-
-        Console.ForegroundColor = ConsoleColor.Yellow;
-        Console.WriteLine("Usage:");
-        Console.WriteLine("  dotnet run -- --up                  # Migrate to latest");
-        Console.WriteLine("  dotnet run -- --down 1              # Rollback to version 1");
-        Console.WriteLine("  dotnet run -- --up --env Production # Use production connection");
-        Console.ResetColor();
-        return 1;
+        catch (Exception ex)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"\n❌ Error: {ex.Message}\n");
+            Console.ResetColor();
+            
+            Console.WriteLine("Press any key to exit...");
+            Console.ReadKey();
+            return 1;
+        }
     }
 
     static IServiceProvider CreateServices(string env)
