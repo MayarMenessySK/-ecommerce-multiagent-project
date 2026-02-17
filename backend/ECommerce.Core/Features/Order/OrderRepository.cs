@@ -8,22 +8,25 @@ public class OrderRepository : BaseRepository, IOrderRepository
 
     public async Task<OrderEntity?> GetByIdAsync(Guid id)
     {
-        return await GetByIdAsync<OrderEntity>(id);
+        var query = _meta.Order.Where(o => o.Id == id);
+        return await ExecuteQuerySingleAsync(query);
     }
 
     public async Task<List<OrderEntity>> GetByUserIdAsync(Guid userId)
     {
-        return await _meta.Order
+        var query = _meta.Order
             .Where(o => o.UserId == userId)
-            .OrderByDescending(o => o.CreatedAt)
-            .ToListAsync();
+            .OrderByDescending(o => o.CreatedAt);
+        
+        return await ExecuteQueryAsync(query);
     }
 
     public async Task<List<OrderItemEntity>> GetOrderItemsAsync(Guid orderId)
     {
-        return await _meta.OrderItem
-            .Where(oi => oi.OrderId == orderId)
-            .ToListAsync();
+        var query = _meta.OrderItem
+            .Where(oi => oi.OrderId == orderId);
+        
+        return await ExecuteQueryAsync(query);
     }
 
     public async Task<OrderEntity> CreateAsync(OrderEntity order)
@@ -47,7 +50,6 @@ public class OrderRepository : BaseRepository, IOrderRepository
     {
         item.Id = Guid.NewGuid();
         item.CreatedAt = DateTime.UtcNow;
-        item.UpdatedAt = DateTime.UtcNow;
         
         await SaveAsync(item);
         return item;

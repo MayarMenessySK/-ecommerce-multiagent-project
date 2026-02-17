@@ -9,8 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ECommerce.Data\ECommerce.Data.csproj" />
-    <ProjectReference Include="..\ECommerce.Data.DatabaseSpecific\ECommerce.Data.DatabaseSpecific.csproj" />
+    <ProjectReference Include="..\Data\DatabaseGeneric\ecommerce.csproj" />
+    <ProjectReference Include="..\Data\DatabaseSpecific\ecommerceDBSpecific.csproj" />
+    <ProjectReference Include="..\Data\ECommerce.Data.Views.Persistence\ECommerce.Data.Views.Persistence.csproj" />
+    <ProjectReference Include="..\Data\ECommerce.Data.Views\ECommerce.Data.Views.csproj" />
   </ItemGroup>
 
   <ItemGroup>

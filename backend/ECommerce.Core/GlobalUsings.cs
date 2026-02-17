@@ -1,5 +1,7 @@
 global using Microsoft.Extensions.DependencyInjection;
 global using SD.LLBLGen.Pro.ORMSupportClasses;
+global using SD.LLBLGen.Pro.LinqSupportClasses;
+global using ECommerce.Data;
 global using ECommerce.Data.DatabaseSpecific;
 global using ECommerce.Data.EntityClasses;
 global using ECommerce.Data.HelperClasses;

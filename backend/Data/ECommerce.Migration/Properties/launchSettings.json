@@ -1,0 +1,15 @@
+{
+  "profiles": {
+    "ECommerce.Migration": {
+      "commandName": "Project"
+    },
+    "Migrate Up": {
+      "commandName": "Project",
+      "commandLineArgs": "--up"
+    },
+    "Migrate Down": {
+      "commandName": "Project",
+      "commandLineArgs": "--down 0"
+    }
+  }
+}

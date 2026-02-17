@@ -8,23 +8,26 @@ public class ReviewRepository : BaseRepository, IReviewRepository
 
     public async Task<ReviewEntity?> GetByIdAsync(Guid id)
     {
-        return await GetByIdAsync<ReviewEntity>(id);
+        var query = _meta.Review.Where(r => r.Id == id);
+        return await ExecuteQuerySingleAsync(query);
     }
 
     public async Task<List<ReviewEntity>> GetByProductIdAsync(Guid productId)
     {
-        return await _meta.Review
+        var query = _meta.Review
             .Where(r => r.ProductId == productId)
-            .OrderByDescending(r => r.CreatedAt)
-            .ToListAsync();
+            .OrderByDescending(r => r.CreatedAt);
+        
+        return await ExecuteQueryAsync(query);
     }
 
     public async Task<List<ReviewEntity>> GetByUserIdAsync(Guid userId)
     {
-        return await _meta.Review
+        var query = _meta.Review
             .Where(r => r.UserId == userId)
-            .OrderByDescending(r => r.CreatedAt)
-            .ToListAsync();
+            .OrderByDescending(r => r.CreatedAt);
+        
+        return await ExecuteQueryAsync(query);
     }
 
     public async Task<ReviewEntity> CreateAsync(ReviewEntity review)

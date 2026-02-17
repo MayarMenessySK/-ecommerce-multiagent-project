@@ -8,25 +8,20 @@ public class UserRepository : BaseRepository, IUserRepository
 
     public async Task<UserEntity?> GetByIdAsync(Guid id)
     {
-        return await GetByIdAsync<UserEntity>(id);
+        var query = _meta.User.Where(u => u.Id == id);
+        return await ExecuteQuerySingleAsync(query);
     }
 
     public async Task<UserEntity?> GetByEmailAsync(string email)
     {
-        var user = await _meta.User
-            .Where(u => u.Email == email.ToLower())
-            .FirstOrDefaultAsync();
-        
-        return user;
+        var query = _meta.User.Where(u => u.Email == email.ToLower());
+        return await ExecuteQuerySingleAsync(query);
     }
 
     public async Task<List<UserEntity>> GetAllAsync()
     {
-        var users = await _meta.User
-            .OrderByDescending(u => u.CreatedAt)
-            .ToListAsync();
-        
-        return users;
+        var query = _meta.User.OrderByDescending(u => u.CreatedAt);
+        return await ExecuteQueryAsync(query);
     }
 
     public async Task<UserEntity> CreateAsync(UserEntity user)

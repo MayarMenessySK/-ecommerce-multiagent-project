@@ -8,21 +8,24 @@ public class CartRepository : BaseRepository, ICartRepository
 
     public async Task<CartEntity?> GetByIdAsync(Guid id)
     {
-        return await GetByIdAsync<CartEntity>(id);
+        var query = _meta.Cart.Where(c => c.Id == id);
+        return await ExecuteQuerySingleAsync(query);
     }
 
     public async Task<CartEntity?> GetByUserIdAsync(Guid userId)
     {
-        return await _meta.Cart
-            .Where(c => c.UserId == userId)
-            .FirstOrDefaultAsync();
+        var query = _meta.Cart
+            .Where(c => c.UserId == userId);
+        
+        return await ExecuteQuerySingleAsync(query);
     }
 
     public async Task<List<CartItemEntity>> GetCartItemsAsync(Guid cartId)
     {
-        return await _meta.CartItem
-            .Where(ci => ci.CartId == cartId)
-            .ToListAsync();
+        var query = _meta.CartItem
+            .Where(ci => ci.CartId == cartId);
+        
+        return await ExecuteQueryAsync(query);
     }
 
     public async Task<CartEntity> CreateAsync(CartEntity cart)
@@ -54,7 +57,8 @@ public class CartRepository : BaseRepository, ICartRepository
 
     public async Task<bool> RemoveItemAsync(Guid itemId)
     {
-        var item = await GetByIdAsync<CartItemEntity>(itemId);
+        var query = _meta.CartItem.Where(ci => ci.Id == itemId);
+        var item = await ExecuteQuerySingleAsync(query);
         if (item == null) return false;
         
         return await DeleteAsync(item);

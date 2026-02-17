@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <AssemblyName>ECommerce.Data.Views.Persistence</AssemblyName>
+    <RootNamespace>ECommerce.Data.Views.Persistence</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DatabaseGeneric\ecommerce.csproj" />
+    <ProjectReference Include="..\ECommerce.Data.Views\ECommerce.Data.Views.csproj" />
+  </ItemGroup>
+</Project>

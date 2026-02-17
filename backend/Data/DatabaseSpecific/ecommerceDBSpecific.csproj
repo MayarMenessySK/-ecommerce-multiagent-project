@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <AssemblyName>ECommerce.Data.DatabaseSpecific</AssemblyName>
+    <RootNamespace>ECommerce.Data.DatabaseSpecific</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="SD.LLBLGen.Pro.DQE.PostgreSql" Version="5.12.2-hotfix-20251112" />
+  </ItemGroup>
+</Project>

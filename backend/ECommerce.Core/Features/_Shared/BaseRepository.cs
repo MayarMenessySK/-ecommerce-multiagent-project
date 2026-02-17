@@ -16,26 +16,6 @@ public abstract class BaseRepository
     }
 
     /// <summary>
-    /// Get entity by ID using LLBLGen
-    /// </summary>
-    protected async Task<T?> GetByIdAsync<T>(Guid id) where T : EntityBase2, new()
-    {
-        var entity = new T();
-        var success = await _adapter.FetchEntityAsync(entity, id);
-        return success ? entity : null;
-    }
-
-    /// <summary>
-    /// Get all entities of a type
-    /// </summary>
-    protected async Task<List<T>> GetAllAsync<T>() where T : EntityBase2, new()
-    {
-        var collection = new EntityCollection<T>();
-        await _adapter.FetchEntityCollectionAsync(collection, null);
-        return collection.ToList();
-    }
-
-    /// <summary>
     /// Save entity (insert or update)
     /// </summary>
     protected async Task<bool> SaveAsync<T>(T entity) where T : EntityBase2
@@ -52,12 +32,35 @@ public abstract class BaseRepository
     }
 
     /// <summary>
-    /// Execute query and return entities
+    /// Execute LINQ query asynchronously and return list
     /// </summary>
-    protected async Task<List<T>> FetchAsync<T>(IQuery<T> query) where T : EntityBase2
+    protected async Task<List<T>> ExecuteQueryAsync<T>(IQueryable<T> query) where T : EntityBase2
     {
-        var collection = new EntityCollection<T>();
-        await _adapter.FetchEntityCollectionAsync(collection, query);
-        return collection.ToList();
+        // Wrap the LINQ query in Task.Run for async execution
+        return await Task.Run(() => query.ToList());
+    }
+
+    /// <summary>
+    /// Execute LINQ query asynchronously and return single entity
+    /// </summary>
+    protected async Task<T?> ExecuteQuerySingleAsync<T>(IQueryable<T> query) where T : EntityBase2
+    {
+        return await Task.Run(() => query.FirstOrDefault());
+    }
+
+    /// <summary>
+    /// Execute LINQ query count asynchronously
+    /// </summary>
+    protected async Task<int> ExecuteQueryCountAsync<T>(IQueryable<T> query)
+    {
+        return await Task.Run(() => query.Count());
+    }
+
+    /// <summary>
+    /// Execute LINQ query any asynchronously
+    /// </summary>
+    protected async Task<bool> ExecuteQueryAnyAsync<T>(IQueryable<T> query)
+    {
+        return await Task.Run(() => query.Any());
     }
 }

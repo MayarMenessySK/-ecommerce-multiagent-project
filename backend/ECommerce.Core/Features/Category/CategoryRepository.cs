@@ -8,31 +8,35 @@ public class CategoryRepository : BaseRepository, ICategoryRepository
 
     public async Task<CategoryEntity?> GetByIdAsync(Guid id)
     {
-        return await GetByIdAsync<CategoryEntity>(id);
+        var query = _meta.Category.Where(c => c.Id == id);
+        return await ExecuteQuerySingleAsync(query);
     }
 
     public async Task<CategoryEntity?> GetBySlugAsync(string slug)
     {
-        return await _meta.Category
-            .Where(c => c.Slug == slug)
-            .FirstOrDefaultAsync();
+        var query = _meta.Category
+            .Where(c => c.Slug == slug);
+        
+        return await ExecuteQuerySingleAsync(query);
     }
 
     public async Task<List<CategoryEntity>> GetAllAsync()
     {
-        return await _meta.Category
+        var query = _meta.Category
             .OrderBy(c => c.DisplayOrder)
-            .ThenBy(c => c.Name)
-            .ToListAsync();
+            .ThenBy(c => c.Name);
+        
+        return await ExecuteQueryAsync(query);
     }
 
     public async Task<List<CategoryEntity>> GetActiveAsync()
     {
-        return await _meta.Category
+        var query = _meta.Category
             .Where(c => c.IsActive)
             .OrderBy(c => c.DisplayOrder)
-            .ThenBy(c => c.Name)
-            .ToListAsync();
+            .ThenBy(c => c.Name);
+        
+        return await ExecuteQueryAsync(query);
     }
 
     public async Task<CategoryEntity> CreateAsync(CategoryEntity category)
